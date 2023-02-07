@@ -10,8 +10,8 @@ function MovieCard({ image, title, large }) {
       <img
         src={image}
         alt={title}
-        className={`max-h-24 hover:scale-105 cursor-pointer z-50 rounded-sm md:rounded ${
-          large && "max-h-60"
+        className={`max-h-24 hover:scale-105 cursor-pointer z-50 rounded-sm md:rounded shadow-sm shadow-gray-400 ${
+          large && "max-h-60 shadow-md"
         }`}
       />{" "}
     </div>

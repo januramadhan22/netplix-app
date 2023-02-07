@@ -34,16 +34,20 @@ function MovieList({ title, fetchUrl, isLarge = false }) {
       <h2>{title}</h2>
 
       <Slider {...settings}>
-        {movies.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            image={`${imageUrl}${
-              isLarge ? movie.poster_path : movie.backdrop_path
-            }`}
-            large={isLarge}
-            title={movie.name || movie.title}
-          />
-        ))}
+        {movies.map(
+          (movie) =>
+            ((isLarge && movie.poster_path) ||
+              (!isLarge && movie.backdrop_path)) && (
+              <MovieCard
+                key={movie.id}
+                image={`${imageUrl}${
+                  isLarge ? movie.poster_path : movie.backdrop_path
+                }`}
+                large={isLarge}
+                title={movie.name || movie.title}
+              />
+            )
+        )}
       </Slider>
     </div>
   );
