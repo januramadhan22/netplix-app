@@ -32,15 +32,17 @@ function Banner() {
           {movie.title || movie.name || movie.original_name}
         </h1>
         <div className="flex items-center gap-4">
-          <button className="font-bold px-8 py-1 rounded bg-gray-700 transition ease-in duration-150 hover:bg-white hover:text-gray-700">
+          <button className="font-bold px-8 py-1 rounded bg-gray-700 transition ease-in duration-150 bg-opacity-70 hover:bg-white hover:text-gray-700">
             Play
           </button>
-          <button className="font-bold px-8 py-1 rounded bg-gray-700 transition ease-in duration-150 hover:bg-white hover:text-gray-700">
+          <button className="font-bold px-8 py-1 rounded bg-gray-700 transition ease-in duration-150 bg-opacity-70 hover:bg-white hover:text-gray-700">
             My List
           </button>
         </div>
         <h2 className="w-[45rem] max-w-sm h-20 text-sm leading-5">
-          {`${movie?.overview}`.substr(0, 200) + "..."}
+          {`${movie?.overview}`.length > 200
+            ? `${movie?.overview}`.substr(0, 200) + "..."
+            : `${movie?.overview}`}
         </h2>
       </div>
 
