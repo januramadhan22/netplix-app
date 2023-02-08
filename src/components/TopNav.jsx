@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Netplix from "../assets/netplix_logo.png";
 
-function TopNav() {
-  const user = { id: 1, name: "John" };
+function TopNav({ user, login }) {
+  // const user = { id: 1, name: "John" };
 
   const [transition, setTransition] = useState(false);
 
@@ -41,7 +41,10 @@ function TopNav() {
         </div>
       ) : (
         /* Login Button */
-        <button className="px-6 py-1.5 bg-red-600 text-white rounded-sm font-medium ">
+        <button
+          onClick={login}
+          className="px-6 py-1.5 bg-red-600 text-white rounded-sm font-medium "
+        >
           Sign In
         </button>
       )}
