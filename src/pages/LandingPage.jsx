@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import SignIn from "../components/modal/SignIn";
 import TopNav from "../components/TopNav";
 
-function LandingPage({ user }) {
+function LandingPage() {
   const [signIn, setSignIn] = useState(false);
 
   return (
     <div className="bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/862cc171-8df5-418c-886f-2aaf767ae159/d46ac4b6-e5e4-406b-9bd6-24527044a0d9/ID-id-20230130-popsignuptwoweeks-perspective_alpha_website_small.jpg')] bg-no-repeat bg-center bg-cover h-screen w-full relative transition ease-in">
-      <TopNav user={user} login={() => setSignIn(true)} />
+      <TopNav login={() => setSignIn(true)} />
 
       {signIn ? (
         <SignIn />

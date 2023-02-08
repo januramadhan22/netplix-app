@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Netplix from "../assets/netplix_logo.png";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectUser } from "../utils/userSlice/userSlice";
 
-function TopNav({ user, login }) {
-  // const user = { id: 1, name: "John" };
-
+function TopNav({ login }) {
+  const user = useSelector(selectUser);
   const [transition, setTransition] = useState(false);
 
   const navbarTransition = () => {
@@ -33,11 +35,13 @@ function TopNav({ user, login }) {
       {user ? (
         /* User Icon */
         <div>
-          <img
-            src="https://tse1.mm.bing.net/th?id=OIP.4l745LKOzMIKiNgqGO6cLQHaHa&pid=Api&P=0"
-            alt="User Avatar"
-            className="h-8 rounded-sm  cursor-pointer"
-          />
+          <Link to={`/profile/${user.uid}`}>
+            <img
+              src="https://tse1.mm.bing.net/th?id=OIP.4l745LKOzMIKiNgqGO6cLQHaHa&pid=Api&P=0"
+              alt="User Avatar"
+              className="h-8 rounded-sm  cursor-pointer"
+            />
+          </Link>
         </div>
       ) : (
         /* Login Button */
