@@ -4,10 +4,16 @@ import HomePage from "../pages/HomePage";
 import LandingPage from "../pages/LandingPage";
 
 function App() {
+  const user = null;
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        {!user ? (
+          <Route path="/" element={<LandingPage user={user} />} />
+        ) : (
+          <Route exact path="/" element={<HomePage />} />
+        )}
       </Routes>
     </BrowserRouter>
   );
