@@ -4,10 +4,10 @@ import Banner from "../components/Banner";
 import MovieList from "../components/card/MovieList";
 import useFetch from "../utils/useFetch";
 
-function HomePage({ user }) {
+function HomePage() {
   return (
     <div className="w-full min-h-screen bg-black">
-      <TopNav user={user} />
+      <TopNav />
 
       <Banner />
       <div className="w-full flex flex-col gap-5">

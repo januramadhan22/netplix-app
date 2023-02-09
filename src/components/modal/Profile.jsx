@@ -1,6 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { userAuth } from "../../utils/firebase";
+import { selectUser } from "../../utils/userSlice/userSlice";
 
 function Profile() {
+  const user = useSelector(selectUser);
+
   return (
     <div className="absolute w-full h-fit top-28 flex justify-center">
       <div className="w-1/2 flex flex-col gap-4 text-white">
@@ -13,7 +18,7 @@ function Profile() {
           />
           <div className="w-full flex flex-col gap-2">
             <span className="py-2 px-4 text-sm font-medium bg-gray-500">
-              Email User
+              {user.email}
             </span>
             <h3 className="w-full font-semibold py-1 border-b border-gray-700">
               Plans (Current Plans: Premium)
@@ -50,7 +55,10 @@ function Profile() {
                 </button>
               </div>
             </div>
-            <button className="mt-10 px-6 py-2 text-white font-medium bg-red-700 rounded-sm">
+            <button
+              onClick={() => userAuth.signOut()}
+              className="mt-10 px-6 py-2 text-white font-medium bg-red-700 rounded-sm"
+            >
               Sign Out
             </button>
           </div>
