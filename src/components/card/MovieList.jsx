@@ -33,7 +33,12 @@ function MovieList({ title, fetchUrl, isLarge = false }) {
     <div className="px-5 text-white font-semibold text-2xl">
       <h2>{title}</h2>
 
-      <Slider {...settings}>
+      <div
+        id="movieList"
+        className={`w-full py-3 px-2 flex gap-2 overflow-x-scroll overflow-y-hidden z-10 ${
+          isLarge && "gap-3"
+        }`}
+      >
         {movies.map(
           (movie) =>
             ((isLarge && movie.poster_path) ||
@@ -48,7 +53,7 @@ function MovieList({ title, fetchUrl, isLarge = false }) {
               />
             )
         )}
-      </Slider>
+      </div>
     </div>
   );
 }

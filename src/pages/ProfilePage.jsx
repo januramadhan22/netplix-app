@@ -4,7 +4,7 @@ import TopNav from "../components/TopNav";
 
 function ProfilePage() {
   return (
-    <div className="h-screen w-full bg-black relative">
+    <div className="min-h-screen w-full bg-black relative">
       <TopNav />
       <Profile />
     </div>

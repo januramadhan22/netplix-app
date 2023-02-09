@@ -10,3 +10,17 @@
     rgba(0, 0, 0, 0.8) 100%
   );
 }
+
+#movieList::-webkit-scrollbar {
+  width: 100%;
+  padding: 0 10px;
+  display: block;
+  height: 5px;
+}
+
+#movieList::-webkit-scrollbar-thumb {
+  margin: 0 100px;
+  max-width: 5%;
+  background-color: rgba(88, 88, 88, 0.5);
+  border-radius: 5px;
+}
