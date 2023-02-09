@@ -2,19 +2,13 @@ import React from "react";
 
 function MovieCard({ image, title, large }) {
   return (
-    <div
-      className={`h-28 md:h-32 flex justify-center items-center mr-1 md:mr-2 ${
-        large && "lg:h-64"
+    <img
+      src={image}
+      alt={title}
+      className={`max-h-24 hover:scale-105 cursor-pointer z-10 rounded-sm md:rounded shadow-sm shadow-gray-700 ${
+        large && "max-h-60 shadow-sm"
       }`}
-    >
-      <img
-        src={image}
-        alt={title}
-        className={`max-h-24 hover:scale-105 cursor-pointer z-50 rounded-sm md:rounded shadow-sm shadow-gray-400 ${
-          large && "max-h-60 shadow-md"
-        }`}
-      />{" "}
-    </div>
+    />
   );
 }
 

@@ -7,14 +7,14 @@ function Profile() {
   const user = useSelector(selectUser);
 
   return (
-    <div className="absolute w-full h-fit top-28 flex justify-center">
-      <div className="w-1/2 flex flex-col gap-4 text-white">
+    <div className="absolute w-full h-fit px-10 sm:px-12 top-28 flex justify-center">
+      <div className="w-full md:w-10/12 lg:w-1/2 flex flex-col gap-4 text-white">
         <h1 className="text-4xl font-semibold">Edit Profile</h1>
-        <div className="w-full flex gap-4">
+        <div className="w-full flex flex-col items-center md:items-start md:flex-row gap-5">
           <img
             src="https://tse1.mm.bing.net/th?id=OIP.4l745LKOzMIKiNgqGO6cLQHaHa&pid=Api&P=0"
             alt=""
-            className="h-24 rounded-sm"
+            className="h-24 w-24 rounded-sm"
           />
           <div className="w-full flex flex-col gap-2">
             <span className="py-2 px-4 text-sm font-medium bg-gray-500">
@@ -50,7 +50,10 @@ function Profile() {
                   <p>Netplix Premium</p>
                   <p className="text-xs">4K+HDR</p>
                 </span>
-                <button className="px-6 py-1.5 text-white text-sm font-medium bg-gray-500 rounded-sm">
+                <button
+                  disabled
+                  className="px-6 py-1.5 text-white text-sm font-medium bg-gray-500 rounded-sm"
+                >
                   Current Package
                 </button>
               </div>

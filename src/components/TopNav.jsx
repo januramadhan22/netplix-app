@@ -23,14 +23,18 @@ function TopNav({ login }) {
 
   return (
     <div
-      className={`w-full px-8 py-4 flex justify-between items-center fixed top-0 transition-all ease-in duration-200 z-50 ${
-        transition && "bg-black"
+      className={`w-full px-10 sm:px-12 py-6 flex justify-between items-center fixed top-0 transition-all ease-in duration-200 z-50 ${
+        transition && "bg-black z-50"
       }`}
     >
       {/* Logo Brand */}
       <div>
         <Link to="/">
-          <img src={Netplix} alt="Netplix" className="h-8 cursor-pointer" />
+          <img
+            src={Netplix}
+            alt="Netplix"
+            className="h-6 md:h-8 cursor-pointer"
+          />
         </Link>
       </div>
 
@@ -41,7 +45,7 @@ function TopNav({ login }) {
             <img
               src="https://tse1.mm.bing.net/th?id=OIP.4l745LKOzMIKiNgqGO6cLQHaHa&pid=Api&P=0"
               alt="User Avatar"
-              className="h-8 rounded-sm  cursor-pointer"
+              className="h-6 md:h-8 rounded-sm  cursor-pointer"
             />
           </Link>
         </div>
@@ -49,7 +53,7 @@ function TopNav({ login }) {
         /* Login Button */
         <button
           onClick={login}
-          className="px-6 py-1.5 bg-red-600 text-white rounded-sm font-medium "
+          className="px-6 py-1.5 bg-red-600 text-white text-sm md:text-base rounded-sm font-medium "
         >
           Sign In
         </button>
