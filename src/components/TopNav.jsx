@@ -29,7 +29,9 @@ function TopNav({ login }) {
     >
       {/* Logo Brand */}
       <div>
-        <img src={Netplix} alt="Netplix" className="h-8 cursor-pointer" />
+        <Link to="/">
+          <img src={Netplix} alt="Netplix" className="h-8 cursor-pointer" />
+        </Link>
       </div>
 
       {user ? (
