@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route, redirect } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import HomePage from "../pages/HomePage";
@@ -9,6 +9,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { userAuth } from "../utils/firebase";
 import { login, logout, selectUser } from "../utils/userSlice/userSlice";
 import ProfilePage from "../pages/ProfilePage";
+import DetailPage from "../pages/DetailPage";
 
 function App() {
   const user = useSelector(selectUser);
@@ -40,6 +41,7 @@ function App() {
           <Route exact path="/" element={<HomePage />} />
         )}
         <Route path="/profile/:uid" element={<ProfilePage />} />
+        <Route path="/detail/:uid" element={<DetailPage />} />
       </Routes>
     </BrowserRouter>
   );

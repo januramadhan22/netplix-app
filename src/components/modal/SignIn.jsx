@@ -34,7 +34,7 @@ function SignIn() {
       passwordRef.current.value
     )
       .then((res) => {
-        console.log(res);
+        alert(`Signed as ${res.user.email}`);
       })
       .catch((err) => {
         alert(err.message);

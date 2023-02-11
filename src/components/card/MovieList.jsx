@@ -10,14 +10,14 @@ function MovieList({ title, fetchUrl, isLarge = false }) {
 
   const imageUrl = "https://image.tmdb.org/t/p/original";
 
-  const settings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: isLarge ? 7 : 7,
-    swipeToSlide: true,
-    arrows: false,
-  };
+  // const settings = {
+  //   dots: false,
+  //   infinite: false,
+  //   speed: 500,
+  //   slidesToShow: isLarge ? 7 : 7,
+  //   swipeToSlide: true,
+  //   arrows: false,
+  // };
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -45,6 +45,7 @@ function MovieList({ title, fetchUrl, isLarge = false }) {
               (!isLarge && movie.backdrop_path)) && (
               <MovieCard
                 key={movie.id}
+                id={movie.id}
                 image={`${imageUrl}${
                   isLarge ? movie.poster_path : movie.backdrop_path
                 }`}
