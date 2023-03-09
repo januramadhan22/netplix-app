@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 function MovieList({ title, fetchUrl, isLarge = false }) {
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const imageUrl = "https://image.tmdb.org/t/p/original";
 
@@ -35,24 +36,28 @@ function MovieList({ title, fetchUrl, isLarge = false }) {
 
       <div
         id="movieList"
-        className={`w-full py-3 px-2 flex gap-2 overflow-x-scroll overflow-y-hidden z-10 ${
+        className={`w-full py-3 px-2 grid grid-cols-10 gap-2 z-10 ${
           isLarge && "gap-3"
         }`}
       >
-        {movies.map(
-          (movie) =>
-            ((isLarge && movie.poster_path) ||
-              (!isLarge && movie.backdrop_path)) && (
-              <MovieCard
-                key={movie.id}
-                id={movie.id}
-                image={`${imageUrl}${
-                  isLarge ? movie.poster_path : movie.backdrop_path
-                }`}
-                large={isLarge}
-                title={movie.name || movie.title}
-              />
-            )
+        {loading ? (
+          <div className="text-white">Loading . . .</div>
+        ) : (
+          movies.map(
+            (movie) =>
+              ((isLarge && movie.poster_path) ||
+                (!isLarge && movie.backdrop_path)) && (
+                <MovieCard
+                  key={movie.id}
+                  id={movie.id}
+                  image={`${imageUrl}${
+                    isLarge ? movie.poster_path : movie.backdrop_path
+                  }`}
+                  large={isLarge}
+                  title={movie.name || movie.title}
+                />
+              )
+          )
         )}
       </div>
     </div>
