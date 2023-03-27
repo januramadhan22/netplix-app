@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import axios from "../utils/axios";
 import useFetch from "../utils/useFetch";
 
 function Banner() {
   const [movie, setMovie] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,7 +37,10 @@ function Banner() {
           <button className="font-bold px-8 py-1 rounded bg-gray-700 transition ease-in duration-150 bg-opacity-70 hover:bg-white hover:text-black">
             Play
           </button>
-          <button className="font-bold px-8 py-1 rounded bg-gray-700 transition ease-in duration-150 bg-opacity-70 hover:bg-white hover:text-black">
+          <button
+            onClick={() => navigate("/mylist")}
+            className="font-bold px-8 py-1 rounded bg-gray-700 transition ease-in duration-150 bg-opacity-70 hover:bg-white hover:text-black"
+          >
             My List
           </button>
         </div>

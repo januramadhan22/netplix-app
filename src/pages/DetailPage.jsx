@@ -3,10 +3,13 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { API_KEY } from "../utils/apiKey";
 import TopNav from "../components/TopNav";
+import { addFavorite } from "../utils/favoriteSlice/favoriteSlice";
+import { useDispatch } from "react-redux";
 
 function DetailPage(props) {
   const { uid } = useParams();
   const [detail, setDetail] = useState({});
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchDetail = async () => {
@@ -17,6 +20,22 @@ function DetailPage(props) {
 
     fetchDetail();
   }, []);
+
+  const handleAddFavorite = (movie) => {
+    const myList = localStorage.getItem("myList");
+    if (myList) {
+      const parsedMovies = JSON.parse(myList);
+      parsedMovies.push(movie);
+      const temp = JSON.stringify(parsedMovies);
+      dispatch(addFavorite(parsedMovies));
+      localStorage.setItem("myList", temp);
+      alert(`"${detail.title}" has been added to My List`);
+    } else {
+      const temp = JSON.stringify([movie]);
+      dispatch(addFavorite([movie]));
+      localStorage.setItem("myList", temp);
+    }
+  };
 
   return (
     <div
@@ -52,7 +71,10 @@ function DetailPage(props) {
             Overview: <br />
             <span className="font-normal">{detail.overview}</span>
           </p>
-          <button className="mt-4 mx-auto md:mx-0 px-8 py-2 text-sm font-medium bg-red-700 rounded">
+          <button
+            onClick={() => handleAddFavorite(detail)}
+            className="mt-4 mx-auto md:mx-0 px-8 py-2 text-sm font-medium bg-red-700 rounded"
+          >
             Add To Playlist
           </button>
         </div>
