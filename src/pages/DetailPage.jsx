@@ -23,8 +23,13 @@ function DetailPage(props) {
 
   const handleAddFavorite = (movie) => {
     const myList = localStorage.getItem("myList");
-    if (myList) {
-      const parsedMovies = JSON.parse(myList);
+    const parsedMovies = JSON.parse(myList);
+    const existMovie = parsedMovies.find((item) => item.id === movie.id);
+    if (existMovie) {
+      let temp = parsedMovies.filter((item) => item.id !== movie.id);
+      parsedMovies.pop(temp);
+      alert(`"${detail.title}" already in My List`);
+    } else if (myList) {
       parsedMovies.push(movie);
       const temp = JSON.stringify(parsedMovies);
       dispatch(addFavorite(parsedMovies));
