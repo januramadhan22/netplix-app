@@ -10,6 +10,8 @@ import { userAuth } from "../utils/firebase";
 import { login, logout, selectUser } from "../utils/userSlice/userSlice";
 import ProfilePage from "../pages/ProfilePage";
 import DetailPage from "../pages/DetailPage";
+import MyList from "../pages/MyList";
+import { addFavorite } from "../utils/favoriteSlice/favoriteSlice";
 
 function App() {
   const user = useSelector(selectUser);
@@ -42,6 +44,7 @@ function App() {
         )}
         <Route path="/profile/:uid" element={<ProfilePage />} />
         <Route path="/detail/:uid" element={<DetailPage />} />
+        <Route path="/mylist" element={<MyList />} />
       </Routes>
     </BrowserRouter>
   );
